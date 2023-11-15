@@ -17,7 +17,7 @@ public class RecordDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ficha")
-    private Integer idFicha;
+    private Integer idRecord;
 
     @Column(name = "sintomas_atuais", length = 100)
     private String sintomasAtuais;
@@ -37,4 +37,3 @@ public class RecordDomain {
     @Column(name = "observacoes", length = 100)
     private String observacoes;
 }
-

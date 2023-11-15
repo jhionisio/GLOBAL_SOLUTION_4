@@ -5,11 +5,11 @@ import life.assisten.forall.record.controller.dto.RecordDTO;
 import life.assisten.forall.record.domain.RecordDomain;
 import life.assisten.forall.record.repository.RecordRepository;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
 
 @Service
 public class RecordList {
@@ -23,14 +23,15 @@ public class RecordList {
     }
 
     public List<RecordDTO> listRecords() {
-        List<RecordDomain> recordDomains = recordRepository.findAll();
-        return recordDomains.stream()
+        List<RecordDomain> doctorDomains = recordRepository.findAll();
+        return doctorDomains.stream()
                 .map(converter::convertToDTO)
                 .collect(Collectors.toList());
     }
 
-    public RecordDTO findRecordById(Integer idFicha) {
-        Optional<RecordDomain> optionalRecordDomain = recordRepository.findById(idFicha);
-        return optionalRecordDomain.map(converter::convertToDTO)orElse(null);
+    public RecordDTO findRecordById(Integer idRecord) {
+        Optional<RecordDomain> optionalDoctorDomain = recordRepository.findById(idRecord);
+        return optionalDoctorDomain.map(converter::convertToDTO).orElse(null);
     }
+
 }
