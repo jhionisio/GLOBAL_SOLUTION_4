@@ -22,13 +22,19 @@ public class RecordDomain {
     @Column(name = "sintomas_atuais", length = 100)
     private String sintomasAtuais;
 
+    @Column(name = "medicamentos_uso", length = 100)
+    private String medicamentosUso;
+
     @Column(name = "alergia", length = 50)
     private String alergia;
 
-    @Column(name = "peso", length = 20)
+    @Column(name = "peso", length = 5)
     private float peso;
 
-    @Column(name = "carencia", length = 11)
-    private String carencia;
+    @Column(name = "altura", length = 5)
+    private float altura;
+
+    @Column(name = "observacoes", length = 100)
+    private String observacoes;
 }
 
