@@ -28,8 +28,13 @@ public class DoctorList {
                 .collect(Collectors.toList());
     }
 
-    public DoctorDTO findDoctorById(Integer id) {
-        Optional<DoctorDomain> optionalDoctorDomain = doctorRepository.findById(id);
+    public DoctorDTO findDoctorById(Integer idMedico) {
+        Optional<DoctorDomain> optionalDoctorDomain = doctorRepository.findById(idMedico);
+        return optionalDoctorDomain.map(converter::convertToDTO).orElse(null);
+    }
+
+    public DoctorDTO findDoctorByEmail(String email) {
+        Optional<DoctorDomain> optionalDoctorDomain = doctorRepository.findByEmail(email);
         return optionalDoctorDomain.map(converter::convertToDTO).orElse(null);
     }
 }

@@ -1,4 +1,4 @@
-package life.assisten.forall.doctor.domain;
+package life.assisten.forall.patient.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,22 +19,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "usuario_medico")
-public class DoctorDomain implements UserDetails {
+@Table(name = "usuario_paciente")
+public class PatientDomain implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_medico")
-    private Integer idMedico;
+    @Column(name = "id_paciente", nullable = false)
+    private Integer idPaciente;
 
-    @Column(name = "nm_medico", length = 100)
-    private String nmMedico;
+    @Column(name = "nm_paciente", length = 100)
+    private String nmPaciente;
 
-    @Column(name = "tipo_especialidade", length = 50)
-    private String tipoEspecialidade;
-
-    @Column(name = "crm", length = 20)
-    private String crm;
+    @Column(name = "nm_doencas_cronicas", length = 255)
+    private String nmDoencasCronicas;
 
     @Column(name = "nr_cpf", length = 11)
     private String nrCpf;

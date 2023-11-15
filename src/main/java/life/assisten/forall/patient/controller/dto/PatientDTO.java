@@ -1,4 +1,4 @@
-package life.assisten.forall.doctor.controller.dto;
+package life.assisten.forall.patient.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,18 +13,15 @@ import jakarta.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorDTO {
+public class PatientDTO {
 
-    private Integer idMedico;
+    private Integer idPaciente;
 
-    @NotNull(message = "nmMedico cannot be null.")
-    private String nmMedico;
+    @NotNull(message = "nmPaciente cannot be null.")
+    private String nmPaciente;
 
-    @NotNull(message = "tipoEspecialidade cannot be null.")
-    private String tipoEspecialidade;
-
-    @NotNull(message = "crm cannot be null.")
-    private String crm;
+    @NotNull(message = "nmDoencasCronicas cannot be null.")
+    private String nmDoencasCronicas;
 
     @NotNull(message = "nrCpf cannot be null.")
     private String nrCpf;
@@ -35,7 +32,7 @@ public class DoctorDTO {
     @NotNull(message = "sexo cannot be null.")
     private char sexo;
 
-    @NotNull(message = "nmEndereco cannot be null.")
+    @NotNull(message = "nrTelefone cannot be null.")
     private String nmEndereco;
 
     @NotNull(message = "nrTelefone cannot be null.")
