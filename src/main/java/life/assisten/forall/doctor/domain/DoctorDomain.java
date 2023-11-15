@@ -55,6 +55,9 @@ public class DoctorDomain implements UserDetails {
     @Column(name = "nn_email", length = 100)
     private String email;
 
+    @Column(name = "password", length = 60)
+    private String password;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USUARIO"));
@@ -62,7 +65,7 @@ public class DoctorDomain implements UserDetails {
 
     @Override
     public String getPassword() {
-        return nrCpf;
+        return password;
     }
 
     @Override
