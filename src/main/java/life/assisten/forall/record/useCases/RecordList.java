@@ -1,11 +1,11 @@
 package life.assisten.forall.record.useCases;
 
-import life.assisten.forall.record.controller.converter.RecordToDTO;
+import org.springframework.stereotype.Service;
+
+import life.assisten.forall.record.controller.converters.RecordToDTO;
 import life.assisten.forall.record.controller.dto.RecordDTO;
 import life.assisten.forall.record.domain.RecordDomain;
 import life.assisten.forall.record.repository.RecordRepository;
-
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;

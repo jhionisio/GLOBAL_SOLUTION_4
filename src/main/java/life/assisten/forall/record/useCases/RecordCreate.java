@@ -1,10 +1,13 @@
 package life.assisten.forall.record.useCases;
 
-import life.assisten.forall.record.controller.converter.RecordToDomain;
+import org.springframework.stereotype.Service;
+
+import life.assisten.forall.record.controller.converters.RecordToDomain;
 import life.assisten.forall.record.controller.dto.RecordDTO;
 import life.assisten.forall.record.domain.RecordDomain;
 import life.assisten.forall.record.repository.RecordRepository;
 
+@Service
 public class RecordCreate {
 
     private final RecordRepository recordRepository;
@@ -15,8 +18,8 @@ public class RecordCreate {
         this.converter = converter;
     }
 
-    public RecordDomain createRecord(RecordDTO RecordDTO) {
-        RecordDomain RecordDomain = converter.convertToDomain(RecordDTO);
-        return recordRepository.save(RecordDomain);
+    public RecordDomain createRecord(RecordDTO recordDTO) {
+        RecordDomain recordDomain = converter.convertToDomain(recordDTO);
+        return recordRepository.save(recordDomain);
     }
 }

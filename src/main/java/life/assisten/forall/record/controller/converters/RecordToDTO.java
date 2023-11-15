@@ -1,4 +1,4 @@
-package life.assisten.forall.record.controller.converter;
+package life.assisten.forall.record.controller.converters;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
