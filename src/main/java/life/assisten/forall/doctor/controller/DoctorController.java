@@ -41,9 +41,9 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 
-    @GetMapping("/{nnEmail}")
-    public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable String nnEmail) {
-        DoctorDTO doctor = doctorList.findDoctorByEmail(nnEmail);
+    @GetMapping("/{email}")
+    public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable String email) {
+        DoctorDTO doctor = doctorList.findDoctorByEmail(email);
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 }

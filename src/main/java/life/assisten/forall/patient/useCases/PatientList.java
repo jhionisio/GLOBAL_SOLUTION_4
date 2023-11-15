@@ -33,8 +33,8 @@ public class PatientList {
         return optionalPatientDomain.map(converter::convertToDTO).orElse(null);
     }
 
-    public PatientDTO findPatientByEmail(String nnEmail) {
-        Optional<PatientDomain> optionalPatientDomain = patientRepository.findByEmail(nnEmail);
+    public PatientDTO findPatientByEmail(String email) {
+        Optional<PatientDomain> optionalPatientDomain = patientRepository.findByEmail(email);
         return optionalPatientDomain.map(converter::convertToDTO).orElse(null);
     }
 }

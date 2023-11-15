@@ -9,5 +9,5 @@ public interface PatientRepository extends JpaRepository<PatientDomain, Integer>
 
     Optional<PatientDomain> findByIdPaciente(Integer idPaciente);
 
-    Optional<PatientDomain> findByEmail(String nnEmail);
+    Optional<PatientDomain> findByEmail(String email);
 }
