@@ -9,4 +9,6 @@ public interface DoctorRepository extends JpaRepository<DoctorDomain, Integer> {
 
     Optional<DoctorDomain> findById(Integer idMedico);
 
+    Optional<DoctorDomain> findByEmail(String nnEmail);
+
 }
