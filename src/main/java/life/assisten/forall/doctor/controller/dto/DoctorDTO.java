@@ -41,7 +41,7 @@ public class DoctorDTO {
     @NotNull(message = "nrTelefone cannot be null.")
     private String nrTelefone;
 
-    @NotNull(message = "nnEmail cannot be null.")
-    private String nnEmail;
+    @NotNull(message = "email cannot be null.")
+    private String email;
 
 }

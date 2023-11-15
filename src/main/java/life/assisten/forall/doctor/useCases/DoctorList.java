@@ -33,8 +33,8 @@ public class DoctorList {
         return optionalDoctorDomain.map(converter::convertToDTO).orElse(null);
     }
 
-    public DoctorDTO findDoctorByEmail(String nnEmail) {
-        Optional<DoctorDomain> optionalDoctorDomain = doctorRepository.findByEmail(nnEmail);
+    public DoctorDTO findDoctorByEmail(String email) {
+        Optional<DoctorDomain> optionalDoctorDomain = doctorRepository.findByEmail(email);
         return optionalDoctorDomain.map(converter::convertToDTO).orElse(null);
     }
 }

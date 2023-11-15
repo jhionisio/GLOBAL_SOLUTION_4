@@ -40,9 +40,9 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body(patient);
     }
 
-    @GetMapping("/{nnEmail}")
-    public ResponseEntity<PatientDTO> findPatientByEmail(@PathVariable String nnEmail) {
-        PatientDTO patient = patientList.findPatientByEmail(nnEmail);
+    @GetMapping("/{email}")
+    public ResponseEntity<PatientDTO> findPatientByEmail(@PathVariable String email) {
+        PatientDTO patient = patientList.findPatientByEmail(email);
         return ResponseEntity.status(HttpStatus.OK).body(patient);
     }
 }

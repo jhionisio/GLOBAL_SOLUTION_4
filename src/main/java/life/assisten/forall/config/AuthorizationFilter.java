@@ -35,12 +35,12 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             if (doctor == null) {
                 PatientDomain patient = tokenService.valideAndGetPatientBy(token);
                 if (patient != null) {
-                    Authentication auth = new UsernamePasswordAuthenticationToken(patient.getNnEmail(), null,
+                    Authentication auth = new UsernamePasswordAuthenticationToken(patient.getEmail(), null,
                             patient.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(auth);
                 }
             } else {
-                Authentication auth = new UsernamePasswordAuthenticationToken(doctor.getNnEmail(), null,
+                Authentication auth = new UsernamePasswordAuthenticationToken(doctor.getEmail(), null,
                         doctor.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }

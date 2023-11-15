@@ -53,7 +53,7 @@ public class DoctorDomain implements UserDetails {
     private String nrTelefone;
 
     @Column(name = "nn_email", length = 100)
-    private String nnEmail;
+    private String email;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -67,7 +67,7 @@ public class DoctorDomain implements UserDetails {
 
     @Override
     public String getUsername() {
-        return nnEmail;
+        return email;
     }
 
     @Override
