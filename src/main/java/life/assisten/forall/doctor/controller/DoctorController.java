@@ -35,9 +35,15 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(doctors);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable Integer id) {
-        DoctorDTO doctor = doctorList.findDoctorById(id);
+    @GetMapping("/{idMedico}")
+    public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable Integer idMedico) {
+        DoctorDTO doctor = doctorList.findDoctorById(idMedico);
+        return ResponseEntity.status(HttpStatus.OK).body(doctor);
+    }
+
+    @GetMapping("/{nnEmail}")
+    public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable String nnEmail) {
+        DoctorDTO doctor = doctorList.findDoctorByEmail(nnEmail);
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 }
