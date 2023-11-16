@@ -10,54 +10,45 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
-import life.assisten.forall.doctor.domain.DoctorDomain;
+import life.assisten.forall.doctor.repository.DoctorRepository;
 import life.assisten.forall.login.domain.Credencial;
 import life.assisten.forall.login.domain.Token;
 import life.assisten.forall.patient.domain.PatientDomain;
+import life.assisten.forall.patient.repository.PatientRepository;
 
 @Service
 public class TokenService {
 
-    @Autowired
-    life.assisten.forall.doctor.repository.DoctorRepository DoctorRepository;
-    life.assisten.forall.patient.repository.PatientRepository PatientRepository;
+        @Autowired
+        PatientRepository patientRepository;
 
-    @Value("${jwt.secret}")
-    String secret;
+        @Autowired
+        DoctorRepository doctorRepository;
 
-    public Token generateToken(Credencial credencial) {
-        Algorithm alg = Algorithm.HMAC256(secret);
-        var token = JWT.create()
-                .withSubject(credencial.email())
-                .withExpiresAt(Instant.now().plus(1, ChronoUnit.HOURS))
-                .withIssuer("forall")
-                .sign(alg);
+        @Value("${jwt.secret}")
+        String secret;
 
-        return new Token(token, "JWT", "Bearer");
-    }
+        public Token generateToken(Credencial credencial) {
+                Algorithm alg = Algorithm.HMAC256(secret);
+                var token = JWT.create()
+                                .withSubject(credencial.email())
+                                .withExpiresAt(Instant.now().plus(1, ChronoUnit.HOURS))
+                                .withIssuer("ForAll")
+                                .sign(alg);
 
-    public PatientDomain valideAndGetPatientBy(String token) {
-        Algorithm alg = Algorithm.HMAC256(secret);
-        var email = JWT.require(alg)
-                .withIssuer("forall")
-                .build()
-                .verify(token)
-                .getSubject();
+                return new Token(token, "JWT", "Bearer");
+        }
 
-        return PatientRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-    }
+        public PatientDomain valideAndGetUserBy(String token) {
+                Algorithm alg = Algorithm.HMAC256(secret);
+                var email = JWT.require(alg)
+                                .withIssuer("ForAll")
+                                .build()
+                                .verify(token)
+                                .getSubject();
 
-    public DoctorDomain valideAndGetDoctorBy(String token) {
-        Algorithm alg = Algorithm.HMAC256(secret);
-        var email = JWT.require(alg)
-                .withIssuer("forall")
-                .build()
-                .verify(token)
-                .getSubject();
-
-        return DoctorRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-    }
+                return patientRepository.findByEmail(email)
+                                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        }
 
 }

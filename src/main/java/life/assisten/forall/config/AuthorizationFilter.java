@@ -13,10 +13,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import life.assisten.forall.login.useCase.TokenService;
-import life.assisten.forall.patient.domain.PatientDomain;
-import life.assisten.forall.doctor.domain.DoctorDomain;
 
 @Component
 public class AuthorizationFilter extends OncePerRequestFilter {
@@ -28,23 +25,18 @@ public class AuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        // pegar o token no header
         var token = getToken(request);
 
+        // se for valido, autenticar
         if (token != null) {
-            DoctorDomain doctor = tokenService.valideAndGetDoctorBy(token);
-            if (doctor == null) {
-                PatientDomain patient = tokenService.valideAndGetPatientBy(token);
-                if (patient != null) {
-                    Authentication auth = new UsernamePasswordAuthenticationToken(patient.getEmail(), null,
-                            patient.getAuthorities());
-                    SecurityContextHolder.getContext().setAuthentication(auth);
-                }
-            } else {
-                Authentication auth = new UsernamePasswordAuthenticationToken(doctor.getEmail(), null,
-                        doctor.getAuthorities());
-                SecurityContextHolder.getContext().setAuthentication(auth);
-            }
+            var usuario = tokenService.valideAndGetUserBy(token);
+            Authentication auth = new UsernamePasswordAuthenticationToken(usuario.getEmail(), null,
+                    usuario.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(auth);
         }
+
+        // chama o próximo
         filterChain.doFilter(request, response);
     }
 
@@ -57,5 +49,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         }
 
         return header.replace(prefix, "");
+
     }
+
 }

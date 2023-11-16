@@ -30,7 +30,7 @@ public class EmergencyContactsDTO {
     private Date dtNascimento;
 
     @NotBlank(message = "Gender is mandatory")
-    private String sexo;
+    private char sexo;
 
     @NotBlank(message = "Address is mandatory")
     private String nmEndereco;
