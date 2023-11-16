@@ -34,13 +34,13 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body(patients);
     }
 
-    @GetMapping("/{idPaciente}")
+    @GetMapping("/id/{idPaciente}")
     public ResponseEntity<PatientDTO> findPatientById(@PathVariable Integer idPaciente) {
         PatientDTO patient = patientList.findPatientById(idPaciente);
         return ResponseEntity.status(HttpStatus.OK).body(patient);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<PatientDTO> findPatientByEmail(@PathVariable String email) {
         PatientDTO patient = patientList.findPatientByEmail(email);
         return ResponseEntity.status(HttpStatus.OK).body(patient);
