@@ -13,8 +13,6 @@ import jakarta.validation.constraints.NotNull;
 @AllArgsConstructor
 public class HealthinsuranceDTO {
 
-    private Integer idPlano;
-
     @NotNull(message = "nmPlano cannot be null.")
     private String nmPlano;
 

@@ -16,8 +16,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class EmergencyContactsDTO {
 
-    private Integer idContatos;
-
     @NotBlank(message = "Name is mandatory")
     private String nmNome;
 

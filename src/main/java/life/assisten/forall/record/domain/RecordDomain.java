@@ -1,6 +1,7 @@
 package life.assisten.forall.record.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.patient.domain.PatientDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ficha")
+@Table(name = "paciente_medico")
 public class RecordDomain {
 
     @Id
@@ -36,4 +37,8 @@ public class RecordDomain {
 
     @Column(name = "observacoes", length = 100)
     private String observacoes;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private PatientDomain patientDomain;
 }

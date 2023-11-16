@@ -1,6 +1,7 @@
 package life.assisten.forall.healthinsurance.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.patient.domain.PatientDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,4 +31,8 @@ public class HealthinsuranceDomain {
 
     @Column(name = "carencia", length = 11)
     private String carencia;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private PatientDomain patientDomain;
 }

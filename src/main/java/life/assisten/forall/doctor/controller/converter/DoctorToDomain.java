@@ -2,6 +2,9 @@ package life.assisten.forall.doctor.controller.converter;
 
 import life.assisten.forall.doctor.domain.DoctorDomain;
 import life.assisten.forall.doctor.controller.dto.DoctorDTO;
+
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
@@ -13,5 +16,9 @@ public class DoctorToDomain {
 
     public DoctorDomain convertToDomain(DoctorDTO dto) {
         return modelMapper.map(dto, DoctorDomain.class);
+    }
+
+    public DoctorDomain convertToDomainOptional(Optional<DoctorDomain> optional) {
+        return modelMapper.map(optional, DoctorDomain.class);
     }
 }

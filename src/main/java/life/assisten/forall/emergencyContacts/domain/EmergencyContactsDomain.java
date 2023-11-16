@@ -1,6 +1,7 @@
 package life.assisten.forall.emergencyContacts.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.patient.domain.PatientDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,5 +46,9 @@ public class EmergencyContactsDomain {
 
     @Column(name = "NN_EMAIL", length = 100)
     private String nnEmail;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private PatientDomain patientDomain;
 
 }

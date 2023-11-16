@@ -13,8 +13,6 @@ import jakarta.validation.constraints.NotNull;
 @AllArgsConstructor
 public class RecordDTO {
 
-    private Integer idFicha;
-
     @NotNull(message = "sintomasAtuais cannot be null.")
     private String sintomasAtuais;
 

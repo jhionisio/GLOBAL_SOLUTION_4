@@ -1,6 +1,7 @@
 package life.assisten.forall.doctor.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.doctor_patient.domain.DoctorPatientDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -57,6 +58,9 @@ public class DoctorDomain implements UserDetails {
 
     @Column(name = "password", length = 60)
     private String password;
+
+    @OneToMany(mappedBy = "doctorDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<DoctorPatientDomain> doctorPatientDomains;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

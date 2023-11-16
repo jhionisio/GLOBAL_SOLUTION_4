@@ -6,8 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
+import life.assisten.forall.diary.controller.dto.DiaryDTO;
+import life.assisten.forall.emergencyContacts.controller.dto.EmergencyContactsDTO;
+import life.assisten.forall.healthinsurance.controller.dto.HealthinsuranceDTO;
+import life.assisten.forall.record.controller.dto.RecordDTO;
 
 @Data
 @Builder
@@ -40,5 +45,13 @@ public class PatientDTO {
 
     @NotNull(message = "email cannot be null.")
     private String email;
+
+    private List<HealthinsuranceDTO> healthInsuranceDTO;
+
+    private List<RecordDTO> recordDTO;
+
+    private List<EmergencyContactsDTO> emergencyContactsDTO;
+
+    private List<DiaryDTO> diaryDTO;
 
 }
