@@ -6,16 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
+import life.assisten.forall.doctor_patient.controller.dto.DoctorPatientDTO;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class DoctorDTO {
-
-    private Integer idMedico;
 
     @NotNull(message = "nmMedico cannot be null.")
     private String nmMedico;
@@ -43,5 +43,7 @@ public class DoctorDTO {
 
     @NotNull(message = "email cannot be null.")
     private String email;
+
+    private List<DoctorPatientDTO> doctorPatientDTO;
 
 }

@@ -1,6 +1,11 @@
 package life.assisten.forall.patient.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.diary.domain.DiaryDomain;
+import life.assisten.forall.doctor_patient.domain.DoctorPatientDomain;
+import life.assisten.forall.emergencyContacts.domain.EmergencyContactsDomain;
+import life.assisten.forall.healthinsurance.domain.HealthinsuranceDomain;
+import life.assisten.forall.record.domain.RecordDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +29,7 @@ public class PatientDomain implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_paciente", nullable = false)
+    @Column(name = "id_paciente")
     private Integer idPaciente;
 
     @Column(name = "nm_paciente", length = 100)
@@ -52,6 +57,24 @@ public class PatientDomain implements UserDetails {
     @Column(name = "nn_email", length = 100)
     private String email;
 
+    @Column(name = "password", length = 60)
+    private String password;
+
+    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<DiaryDomain> diaryDomains;
+
+    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<RecordDomain> recordDomains;
+
+    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<EmergencyContactsDomain> emergencyContactsDomains;
+
+    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<HealthinsuranceDomain> healthInsuranceDomains;
+
+    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<DoctorPatientDomain> doctorPatientDomains;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USUARIO"));
@@ -59,7 +82,7 @@ public class PatientDomain implements UserDetails {
 
     @Override
     public String getPassword() {
-        return nrCpf;
+        return password;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package life.assisten.forall.diary.domain;
 
 import jakarta.persistence.*;
+import life.assisten.forall.patient.domain.PatientDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,5 +35,9 @@ public class DiaryDomain {
     @Column(name = "DT_TERMINO")
     @Temporal(TemporalType.DATE)
     private Date dtTermino;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private PatientDomain patientDomain;
 
 }
