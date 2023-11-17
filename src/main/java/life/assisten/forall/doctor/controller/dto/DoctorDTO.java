@@ -44,6 +44,6 @@ public class DoctorDTO {
     @NotNull(message = "email cannot be null.")
     private String email;
 
-    private List<DoctorPatientDTO> doctorPatientDTO;
-
+    @NotNull(message = "password cannot be null.")
+    private String password;
 }

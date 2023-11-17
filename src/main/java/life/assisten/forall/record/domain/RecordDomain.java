@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "paciente_medico")
+@Table(name = "ficha")
 public class RecordDomain {
 
     @Id

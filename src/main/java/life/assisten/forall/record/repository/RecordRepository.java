@@ -8,6 +8,6 @@ import life.assisten.forall.record.domain.RecordDomain;
 
 public interface RecordRepository extends JpaRepository<RecordDomain, Integer> {
 
-    Optional<RecordDomain> findById(Integer idFicha);
+    Optional<RecordDomain> findById(Integer idRecord);
 
 }
