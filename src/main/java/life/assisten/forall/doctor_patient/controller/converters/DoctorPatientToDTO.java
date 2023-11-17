@@ -7,11 +7,11 @@ import life.assisten.forall.doctor_patient.controller.dto.DoctorPatientDTO;
 import life.assisten.forall.doctor_patient.domain.DoctorPatientDomain;
 
 @Component
-public class DoctorPatientToDto {
+public class DoctorPatientToDTO {
 
     private final ModelMapper modelMapper;
 
-    public DoctorPatientToDto(ModelMapper modelMapper) {
+    public DoctorPatientToDTO(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
