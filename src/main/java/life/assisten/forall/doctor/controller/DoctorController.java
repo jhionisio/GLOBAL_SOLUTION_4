@@ -35,13 +35,13 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(doctors);
     }
 
-    @GetMapping("/{idMedico}")
+    @GetMapping("/id/{idMedico}")
     public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable Integer idMedico) {
         DoctorDTO doctor = doctorList.findDoctorById(idMedico);
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<DoctorDTO> findDoctorById(@PathVariable String email) {
         DoctorDTO doctor = doctorList.findDoctorByEmail(email);
         return ResponseEntity.status(HttpStatus.OK).body(doctor);

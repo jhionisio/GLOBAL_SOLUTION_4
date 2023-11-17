@@ -29,7 +29,7 @@ public class EmergencyContactsDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dtNascimento;
 
-    @NotBlank(message = "Gender is mandatory")
+    @NotNull(message = "Gender is mandatory")
     private char sexo;
 
     @NotBlank(message = "Address is mandatory")

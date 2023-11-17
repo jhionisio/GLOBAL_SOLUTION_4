@@ -1,11 +1,10 @@
 package life.assisten.forall.record.useCases;
 
-import org.springframework.stereotype.Service;
-
 import life.assisten.forall.record.controller.converters.RecordToDomain;
 import life.assisten.forall.record.controller.dto.RecordDTO;
 import life.assisten.forall.record.domain.RecordDomain;
 import life.assisten.forall.record.repository.RecordRepository;
+import org.springframework.stereotype.Service;
 
 @Service
 public class RecordCreate {

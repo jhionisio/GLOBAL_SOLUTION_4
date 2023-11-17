@@ -32,7 +32,6 @@ public class SecurityConfig {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .formLogin().disable()
                 .headers().frameOptions().sameOrigin();
 
         if (env.getActiveProfiles().length > 0 && env.getActiveProfiles()[0].equals("open")) {
