@@ -1,12 +1,10 @@
 package life.assisten.forall.doctor_patient.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import life.assisten.forall.doctor_patient.controller.dto.DoctorPatientDTO;
 import life.assisten.forall.doctor_patient.useCases.DoctorPatientCreate;
 import life.assisten.forall.doctor_patient.useCases.DoctorPatientList;
-import life.assisten.forall.record.controller.dto.RecordDTO;
 
 import java.util.List;
 

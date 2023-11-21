@@ -6,10 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
-import life.assisten.forall.doctor_patient.controller.dto.DoctorPatientDTO;
 
 @Data
 @Builder

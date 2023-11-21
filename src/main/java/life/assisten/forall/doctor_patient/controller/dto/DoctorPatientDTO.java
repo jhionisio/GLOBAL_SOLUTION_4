@@ -1,7 +1,5 @@
 package life.assisten.forall.doctor_patient.controller.dto;
 
-import java.util.Optional;
-
 import life.assisten.forall.doctor.domain.DoctorDomain;
 import life.assisten.forall.patient.domain.PatientDomain;
 import lombok.AllArgsConstructor;
