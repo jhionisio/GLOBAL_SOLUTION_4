@@ -25,7 +25,6 @@ public class DiaryDTO {
 
     private Date dtTermino;
 
-    @NotNull(message = "patientId cannot be null.")
     private Integer patientId;
 
 }
