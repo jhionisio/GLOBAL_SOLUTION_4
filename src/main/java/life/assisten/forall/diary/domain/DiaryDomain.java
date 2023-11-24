@@ -36,8 +36,7 @@ public class DiaryDomain {
     @Temporal(TemporalType.DATE)
     private Date dtTermino;
 
-    @ManyToOne
-    @JoinColumn(name = "id_paciente")
-    private PatientDomain patientDomain;
+    @Column(name = "USUARIO_PACIENTE_ID_PACIENTE")
+    private Integer patientId;
 
 }

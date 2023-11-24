@@ -34,6 +34,7 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body(patients);
     }
 
+    @CrossOrigin(origins = "http://localhost:19006") // Especifique a origem permitida
     @GetMapping("/id/{idPaciente}")
     public ResponseEntity<PatientDTO> findPatientById(@PathVariable Integer idPaciente) {
         PatientDTO patient = patientList.findPatientById(idPaciente);

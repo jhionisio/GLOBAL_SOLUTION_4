@@ -61,9 +61,6 @@ public class PatientDomain implements UserDetails {
     private String password;
 
     @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private List<DiaryDomain> diaryDomains;
-
-    @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<RecordDomain> recordDomains;
 
     @OneToMany(mappedBy = "patientDomain", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
