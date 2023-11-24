@@ -30,12 +30,14 @@ public class DiaryController {
         this.diaryUpdate = diaryUpdate;
     }
 
+    @CrossOrigin(origins = "http://localhost:19006") // Especifique a origem permitida
     @PostMapping
     public ResponseEntity<?> createDiary(@Valid @RequestBody DiaryDTO dto) {
         diaryCreate.createDiary(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:19006") // Especifique a origem permitida
     @GetMapping("/list")
     public ResponseEntity<List<DiaryDTO>> listDiaries() {
         List<DiaryDTO> diaries = diaryList.listDiaries();
@@ -48,12 +50,14 @@ public class DiaryController {
         return ResponseEntity.status(HttpStatus.OK).body(diary);
     }
 
+    @CrossOrigin(origins = "http://localhost:19006") // Especifique a origem permitida
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteDiary(@PathVariable Integer id) {
         diaryDelete.deleteDiaryById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:19006") // Especifique a origem permitida
     @PutMapping("/{id}")
     public ResponseEntity<DiaryDTO> updateDiary(@PathVariable Integer id,
             @Valid @RequestBody DiaryDTO updatedDiaryDTO) {

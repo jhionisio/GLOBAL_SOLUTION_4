@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DiaryDTO {
 
+    private Integer idAgenda;
+
     @NotNull(message = "nmRemedio cannot be null.")
     private String nmRemedio;
 

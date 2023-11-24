@@ -24,6 +24,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/patient").permitAll()
+                .requestMatchers(HttpMethod.GET, "/patient/id").permitAll()
+                .requestMatchers(HttpMethod.POST, "/diary").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/diary").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/diary").permitAll()
+                .requestMatchers(HttpMethod.GET, "/diary/list").permitAll()
                 .requestMatchers(HttpMethod.POST, "/doctor").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
